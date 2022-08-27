@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ChakraProvider } from '@chakra-ui/react'; 
+import theme from "./theme";
 import axios from "axios";
 import Home from "./components/pages/Home";
+import Dashboard from "./components/pages/Dashboard";
 
 function App() {
   const [res, setRes] = useState([]);
@@ -18,9 +21,14 @@ function App() {
   }, [categories])
 
   return (
-    <ChakraProvider>
-      <Home />
-    </ChakraProvider>
+    <Router>
+      <ChakraProvider >
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </ChakraProvider>
+    </Router>
   );
 }
 

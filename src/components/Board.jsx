@@ -8,15 +8,22 @@ const Board = () => {
     const flexStyle = {
         display: 'flex',
         flexDir: 'column',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 
     const textStyle = {
-        fontStyle: '800'
+        fontSize: '1.2rem',
+        fontWeight: 'bold'
     }
      
   return (
-    <Box>
+    <Box sx={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '10ppx'
+    }}>
         <Box sx={flexStyle}>
             <Text sx={textStyle}>3/4</Text>
             <Text>questions</Text>

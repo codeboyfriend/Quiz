@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <Box sx={{
         display: 'flex',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         alignItems: 'center',
         padding: '10px',
         borderBottom: '1px solid red'
