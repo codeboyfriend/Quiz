@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ChakraProvider } from '@chakra-ui/react'; 
-import theme from "./theme";
+// import theme from "./theme";
 import axios from "axios";
 import Home from "./components/pages/Home";
 import Dashboard from "./components/pages/Dashboard";
@@ -22,7 +22,7 @@ function App() {
 
   return (
     <Router>
-      <ChakraProvider >
+      <ChakraProvider>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />

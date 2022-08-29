@@ -4,8 +4,11 @@ import {
     Text
   } from "@chakra-ui/react";
 import { FaBusinessTime } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
  const Home = () => {
+    const navigate = useNavigate();
+
     const flexStyle = {
         display: 'flex',
         alignItems: 'center',
@@ -25,6 +28,10 @@ import { FaBusinessTime } from 'react-icons/fa';
         marginRight: '15px',
         fontSize: '1.2rem',
         color: '#fff'
+    }
+
+    const loadData = () => {
+        navigate('/dashboard');
     }
 
 return (
@@ -52,7 +59,10 @@ return (
         flexWrap: 'wrap'
         }}>
 
-        <Box sx={flexStyle}>
+        <Box onClick={
+            // navigate('/dashboard')
+            loadData
+        } sx={flexStyle}>
             <Text sx={iconStyle}><FaBusinessTime /></Text>
             <Text color={'blue.800'}>Play Quiz</Text>
         </Box>
@@ -76,10 +86,17 @@ return (
         {/* Footer component */}
         <Box sx={{
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'center',
+        alignItems: 'center'
+        // w: '40px'
         }}>
-        <Box>Settings</Box>
-        <Box>About</Box>
+        <Box sx={{
+            margin: '0 10px'
+        }}>Settings</Box>
+        <Box sx={{
+            margin: '0 5px'
+        }}
+        >About</Box>
         </Box>
     </Box>
     </Box>

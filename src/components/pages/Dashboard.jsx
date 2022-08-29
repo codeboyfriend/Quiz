@@ -1,6 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import Navbar from "../util/Navbar";
 import Board from "../Board";
+import Question from "../Question"; 
 import Answers from "../Answers";
 
 const Dashboard = () => {
@@ -16,6 +17,7 @@ const Dashboard = () => {
         }}>
             <Navbar />
             <Board />
+            <Question />
             <Answers />
     </Box>
     </Box>
