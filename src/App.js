@@ -5,6 +5,8 @@ import { ChakraProvider } from '@chakra-ui/react';
 import axios from "axios";
 import Home from "./components/pages/Home";
 import Dashboard from "./components/pages/Dashboard";
+import Level from "./components/Level";
+import About from "./components/About";
 
 function App() {
   const [res, setRes] = useState([]);
@@ -26,6 +28,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/level" element={<Level 
+           categories={categories}
+           setCategories={setCategories}
+          />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </ChakraProvider>
     </Router>

@@ -34,7 +34,8 @@ const Board = () => {
         <Box sx={{
             border: '1px solid #fff',
             padding: '10px 12px',
-            borderRadius: '100%'
+            borderRadius: '100%',
+            borderTopRightRadius: '1px solid #000'
         }}>17</Box>
 
         <Box sx={flexStyle}>

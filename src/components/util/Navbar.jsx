@@ -1,8 +1,9 @@
 import { 
     Box, 
     Text 
-} from "@chakra-ui/react"
-import { Link } from "react-router-dom"
+} from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+import { FaHome } from "react-icons/fa";
 
 const Navbar = () => {
   return (
@@ -15,8 +16,19 @@ const Navbar = () => {
         borderBottom: '1px solid #fff',
         boxShadow: '0px 1px 2px rgba'
     }}>
-        <Link to='/'><Text>Home</Text></Link>
-        <Text>PEOPLE</Text>
+        <Link to='/'>
+        <Text sx={{
+          fontSize: '1.4rem'
+        }}><FaHome /></Text>
+        </Link>
+
+        <Link to='/'>
+        <Text sx={{
+          fontSize: '1.5rem',
+          fontWeight: '500'
+        }}>Quiz</Text>
+        </Link>
+
         <Text sx={{
             fontSize: '12px',
             cursor: 'pointer'
