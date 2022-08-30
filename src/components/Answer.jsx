@@ -3,11 +3,8 @@ import {
     Text
   } from "@chakra-ui/react";
 
-  import Answer from "./Answer";
 
-const Answers = ({
-  displayAnswer
-}) => {
+const Answer = ({ ans }) => {
     const flexStyle = {
         display: 'flex',
         alignItems: 'center',
@@ -28,21 +25,21 @@ const Answers = ({
         fontWeight: 'bold',
         marginRight: '15px'
     }
-
+    
   return (
-    <Box>
-      <Box sx={{
+    <Box sx={{
         maxW: '700px',
         display: 'flex',
         justifyContent: 'center',
         flexWrap: 'wrap'
       }}>
-        {
-          displayAnswer.map(ans => (<Answer ans={ans} />))
-        }
+
+        <Box sx={flexStyle}>
+          <Text sx={optionStyle}>A</Text>
+          <Text>{ans.text}</Text>
+        </Box>
       </Box>
-    </Box>
   )
 }
 
-export default Answers
+export default Answer

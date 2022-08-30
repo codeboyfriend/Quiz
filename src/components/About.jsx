@@ -31,7 +31,7 @@ const About = () => {
             bgColor: '#fff',
             color: 'blue.800',
             p: '10px'
-          }}>Quiz</Heading>
+          }}>Kwiz</Heading>
           <Text sx={{
             fontSize: '.9rem',
             p: '20px 10px',

@@ -4,9 +4,7 @@ import {
     Text,
     Modal,
   ModalContent,
-  ModalHeader,
   ModalBody,
-  ModalFooter,
   useDisclosure
   } from "@chakra-ui/react";
 import {
@@ -17,9 +15,12 @@ import {
     FaFacebookMessenger
     
 } from 'react-icons/fa';
+import { BsFillChatLeftDotsFill } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router-dom';
 
- const Home = () => {
+ const Home = ({ 
+    startGame
+}) => {
     const navigate = useNavigate();
     const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -64,7 +65,7 @@ return (
         flexDir: 'column'
     }}>
         {/* Header component */}
-        <Heading>Quiz</Heading>
+        <Heading>Kwiz</Heading>
 
         {/* Buttons component */}
         <Box sx={{
@@ -73,9 +74,10 @@ return (
           flexWrap: 'wrap'
         }}>
 
-        <Box onClick={
-            // navigate('/dashboard')
-            loadData
+        <Box onClick={() => {
+            loadData()
+            startGame()
+        }   
         } sx={flexStyle}>
             <Text sx={iconStyle}><FaPlay /></Text>
             <Text color={'blue.800'}>Play Quiz</Text>
@@ -122,7 +124,7 @@ return (
             }}
           ><Text sx={{
             mr: '5px'
-          }}><FaFacebookMessenger /></Text>
+          }}><BsFillChatLeftDotsFill /></Text>
             <Text>About</Text>
           </Box>
         </Link>

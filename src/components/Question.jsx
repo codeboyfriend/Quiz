@@ -3,7 +3,9 @@ import {
     Text
   } from "@chakra-ui/react";
 
-const Question = () => {
+const Question = ({
+  displayQuestion
+}) => {
   return (
     <Box sx={{
         w: '100%',
@@ -17,7 +19,7 @@ const Question = () => {
         <Text sx={{
             bgColor: '#fff',
             color: 'blue.800'
-        }}>What is HTML?</Text>
+        }}>{ displayQuestion }</Text>
     </Box>
   )
 }

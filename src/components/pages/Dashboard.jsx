@@ -4,7 +4,10 @@ import Board from "../Board";
 import Question from "../Question"; 
 import Answers from "../Answers";
 
-const Dashboard = () => {
+const Dashboard = ({
+  displayQuestion,
+  displayAnswer
+}) => {
   return (
     <Box sx={{
         height: '100vh',
@@ -17,8 +20,12 @@ const Dashboard = () => {
         }}>
             <Navbar />
             <Board />
-            <Question />
-            <Answers />
+            <Question 
+              displayQuestion={displayQuestion} 
+            />
+            <Answers 
+              displayAnswer={displayAnswer}
+            />
     </Box>
     </Box>
   )

@@ -26,7 +26,7 @@ const Navbar = () => {
         <Text sx={{
           fontSize: '1.5rem',
           fontWeight: '500'
-        }}>Quiz</Text>
+        }}>Kwiz</Text>
         </Link>
 
         <Text sx={{
