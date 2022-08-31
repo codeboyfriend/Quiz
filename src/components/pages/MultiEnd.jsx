@@ -1,20 +1,27 @@
 import { useContext } from "react";
 import { useNavigate } from 'react-router-dom';
 import { QuizContext } from "../../Helpers/Contexts";
-import { Questions } from "../../Helpers/QuestionBank";
 import { 
   Box,
   Text,
   Heading 
 } from "@chakra-ui/react";
+import { ArrowRightIcon} from "@chakra-ui/icons"; 
 
-const EndScreen = () => {
+const MultiEnd = () => {
   const navigate = useNavigate();
-  const { score, setScore, point, setPoint } = useContext(QuizContext);
+  const {
+    setScore, 
+    point, 
+    setPoint, 
+    kwizScore, 
+    setKwizScore 
+} = useContext(QuizContext);
 
   const restartGame = () => { 
     setScore(0);
     setPoint(0);
+    setKwizScore(0);
     navigate('/home')
   }
 
@@ -31,14 +38,24 @@ const EndScreen = () => {
     margin: '5px'
   }
 
-  // const optionStyle = {
-  //   bgColor: 'blue.800',
-  //   color: '#fff',
-  //   padding: '5px 12px',
-  //   borderRadius: '100%',
-  //   fontWeight: 'bold',
-  //   marginRight: '15px'
-  // }
+  let result;
+
+  {
+    if (kwizScore > point) {
+        result = 'You lose'
+    } else if (kwizScore < point){
+        result = 'You won'
+    }else {
+        result = 'Draw'
+    }
+  }
+
+  const finishStyleOp = {
+    fontWeight: 'bold',
+    marginLeft: '5px',
+    padding: '5px',
+    fontSize: '.8rem'
+  }
   
   return (
     <Box sx={{
@@ -55,23 +72,23 @@ const EndScreen = () => {
           alignItems: 'center',
           flexDir: 'column'
         }}>
-          <Heading>Quiz Finished</Heading>
+          <Heading>{result}</Heading>
           
           <Text sx={{
             mt: '15px'
-          }}>{ score } / { Questions.length }</Text>
+          }}>Kwiz : { kwizScore }</Text>
 
          <Text sx={{
             m: '15px 0'
-          }}>Point : { point }</Text>
+          }}>You : { point }</Text>
 
           <Box onClick={restartGame} sx={flexStyle}>
             <Text>Restart Quiz</Text>
-            {/* <Text sx={finishStyleOp}><ArrowRightIcon /></Text> */}
+            <Text sx={finishStyleOp}><ArrowRightIcon /></Text>
         </Box>
       </Box>
     </Box>
   )
 }
 
-export default EndScreen
+export default MultiEnd

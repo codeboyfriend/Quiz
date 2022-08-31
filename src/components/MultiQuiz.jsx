@@ -4,17 +4,16 @@ import { QuizContext } from "../Helpers/Contexts";
 import { Questions } from "../Helpers/QuestionBank";
 
 import { 
-  Box,
-  Text
-} from "@chakra-ui/react";
+    Box,
+    Text
+  } from "@chakra-ui/react";
 
 import { 
   ArrowRightIcon
 } from "@chakra-ui/icons"; 
 import { FaRegCheckCircle } from "react-icons/fa";
 
-
-const Quiz = () => {
+const MultiQuiz = () => {
   const navigate = useNavigate();
   const {
     score, 
@@ -22,15 +21,16 @@ const Quiz = () => {
     currQuestion, 
     setCurrQuestion, 
     setPoint, 
-    point, 
-    questions 
-  } = useContext(QuizContext);
+    point,
+    kwizScore,
+    setKwizScore 
+} = useContext(QuizContext);
   const [optionChosen, setOptionChosen] = useState("");
 
   const nextQuestion = () => {
    if(Questions[currQuestion].answer === optionChosen){
-      setScore(score + 1);
       setPoint(point + 2);
+      setKwizScore(kwizScore + Math.floor(Math.random() * 5))
     }
 
     setCurrQuestion(currQuestion + 1);
@@ -38,12 +38,11 @@ const Quiz = () => {
 
   const finishQuiz = () => {
     if(Questions[currQuestion].answer === optionChosen){
-      setScore(score + 1);
-      setPoint(point + 2);
+        setPoint(point + 2);
     }
 
     setCurrQuestion(0);
-    navigate('/end');
+    navigate('/multiend');
   }
 
   const flexStyle = {
@@ -143,4 +142,4 @@ const Quiz = () => {
   )
 }
 
-export default Quiz
+export default MultiQuiz

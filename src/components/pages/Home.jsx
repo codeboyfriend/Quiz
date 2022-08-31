@@ -8,18 +8,21 @@ import {
   useDisclosure
   } from "@chakra-ui/react";
 import {
-    FaChartBar,
-    FaUserFriends,
-    FaPlay,
-    FaBoxes,
-    FaFacebookMessenger 
+  FaChartBar,
+  FaUserFriends,
+  FaPlay,
+  FaBoxes,
+  FaFacebookMessenger 
 } from 'react-icons/fa';
 import { BsFillChatLeftDotsFill } from 'react-icons/bs';
+import { useContext } from "react";
+import { QuizContext } from "../../Helpers/Contexts";
 import { Link, useNavigate } from 'react-router-dom';
 
  const Home = () => {
     const navigate = useNavigate();
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const { setName } = useContext(QuizContext)
 
     const flexStyle = {
       display: 'flex',
@@ -33,13 +36,17 @@ import { Link, useNavigate } from 'react-router-dom';
       margin: '5px'
     }
 
-    const iconStyle ={
+    const iconStyle = {
       bgColor: 'blue.800',
       padding: '8px',
       borderRadius: '100%',
       marginRight: '15px',
       fontSize: '1.2rem',
       color: '#fff'
+    }
+
+    const resetName = () => {
+      setName('')
     }
 
 return (
@@ -58,7 +65,9 @@ return (
         flexDir: 'column'
     }}>
         {/* Header component */}
-        <Heading>Kwiz</Heading>
+        <Link to={'/'}>
+          <Heading onClick={resetName}>Kwiz</Heading>
+        </Link> 
 
         {/* Buttons component */}
         <Box sx={{
@@ -74,7 +83,9 @@ return (
             <Text color={'blue.800'}>Play Quiz</Text>
         </Box>
 
-        <Box sx={flexStyle}>
+        <Box onClick={() => {
+          navigate('/multiplayer');
+        }} sx={flexStyle}>
             <Text sx={iconStyle}><FaUserFriends /></Text>
             <Text>Multiplayer</Text>
         </Box>

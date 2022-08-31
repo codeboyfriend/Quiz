@@ -19,7 +19,6 @@ const About = () => {
     }}>
         <Box sx={{
           maxW: '700px',
-          m: '0 auto',
           textAlign: 'center',
           border: '1px solid #fff',
           m: '0 15px',
@@ -44,7 +43,7 @@ const About = () => {
         <Box sx={{
             mt: '20px'
         }}>
-        <Link to='/'>
+        <Link to='/home'>
             <Text sx={{
                 fontSize: '1.5rem'
             }}><FaHome /></Text>

@@ -1,6 +1,5 @@
 import { 
-    Box,
-    Text 
+    Box 
 } from "@chakra-ui/react"
 const Level = ({
     categories,
