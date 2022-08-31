@@ -6,7 +6,7 @@ import Quiz from "../Quiz";
 const Dashboard = () => {
   return (
     <Box sx={{
-      height: '100vh',
+      minH: '100vh',
       bgColor: 'blue.800',
       color: '#fff'
     }}>

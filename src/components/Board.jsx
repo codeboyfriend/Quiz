@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { QuizContext } from "../Helpers/Contexts";
-import { Questions } from "../Helpers/QuestionBank";
 
 import { 
     Box,
@@ -9,7 +8,7 @@ import {
 
 
 const Board = () => {
-    const { score, currQuestion, point } = useContext(QuizContext);
+    const { score, currQuestion, point, questions } = useContext(QuizContext);
 
     const flexStyle = {
         display: 'flex',
@@ -33,7 +32,7 @@ const Board = () => {
         m: '15px 0'
     }}>
         <Box sx={flexStyle}>
-            <Text sx={textStyle}>{ currQuestion + 1 } / { Questions.length }</Text>
+            <Text sx={textStyle}>{ currQuestion + 1 } / { questions.length }</Text>
             <Text>questions</Text>
         </Box>
 

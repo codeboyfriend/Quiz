@@ -29,9 +29,7 @@ function App() {
     setQuestions(result.data);
   }
   
-  useEffect(() => {
-    fetchQuestion();
-  })
+  fetchQuestion()
 
   return (
     <Router>

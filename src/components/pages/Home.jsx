@@ -116,7 +116,7 @@ return (
             mr: '5px'
           }}><FaFacebookMessenger /></Text>
             <Text>Help</Text>
-          </Box>
+        </Box>
         
         <Link to={'/about'}>
           <Box sx={{

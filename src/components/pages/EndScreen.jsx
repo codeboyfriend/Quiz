@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { useNavigate } from 'react-router-dom';
 import { QuizContext } from "../../Helpers/Contexts";
-import { Questions } from "../../Helpers/QuestionBank";
 import { 
   Box,
   Text,
@@ -10,7 +9,7 @@ import {
 
 const EndScreen = () => {
   const navigate = useNavigate();
-  const { score, setScore, point, setPoint } = useContext(QuizContext);
+  const { score, setScore, point, setPoint, questions } = useContext(QuizContext);
 
   const restartGame = () => { 
     setScore(0);
@@ -30,15 +29,6 @@ const EndScreen = () => {
     color: 'blue.800',
     margin: '5px'
   }
-
-  // const optionStyle = {
-  //   bgColor: 'blue.800',
-  //   color: '#fff',
-  //   padding: '5px 12px',
-  //   borderRadius: '100%',
-  //   fontWeight: 'bold',
-  //   marginRight: '15px'
-  // }
   
   return (
     <Box sx={{
@@ -59,7 +49,7 @@ const EndScreen = () => {
           
           <Text sx={{
             mt: '15px'
-          }}>{ score } / { Questions.length }</Text>
+          }}>{ score } / { questions.length }</Text>
 
          <Text sx={{
             m: '15px 0'

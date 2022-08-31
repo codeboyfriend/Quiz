@@ -1,7 +1,6 @@
 import { useState, useContext } from "react";
 import { useNavigate } from 'react-router-dom';
 import { QuizContext } from "../Helpers/Contexts";
-import { Questions } from "../Helpers/QuestionBank";
 
 import { 
   Box,
@@ -28,7 +27,7 @@ const Quiz = () => {
   const [optionChosen, setOptionChosen] = useState("");
 
   const nextQuestion = () => {
-   if(Questions[currQuestion].answer === optionChosen){
+   if(optionChosen === 'true'){
       setScore(score + 1);
       setPoint(point + 2);
     }
@@ -37,7 +36,7 @@ const Quiz = () => {
   }
 
   const finishQuiz = () => {
-    if(Questions[currQuestion].answer === optionChosen){
+    if(optionChosen === 'true'){
       setScore(score + 1);
       setPoint(point + 2);
     }
@@ -98,7 +97,7 @@ const Quiz = () => {
           mb: '15px',
           textAlign: 'center'
         }}>
-          <h1>{Questions[currQuestion].prompt}</h1>
+          <h1>{questions[currQuestion].question}</h1>
       </Box>
 
       <Box sx={{
@@ -107,27 +106,27 @@ const Quiz = () => {
         justifyContent: 'center',
         flexWrap: 'wrap'
       }}>
-        <Box onClick={() => setOptionChosen('A')} sx={flexStyle}>
+        <Box onClick={() => setOptionChosen(questions[currQuestion].correct_answers.answer_a_correct)} sx={flexStyle}>
           <Text sx={optionStyle}>A</Text>
-          <Text>{Questions[currQuestion].optionA}</Text>
+          <Text>{questions[currQuestion].answers.answer_a}</Text>
         </Box>
 
-        <Box onClick={() => setOptionChosen('B')} sx={flexStyle}>
+        <Box onClick={() => setOptionChosen(questions[currQuestion].correct_answers.answer_b_correct)} sx={flexStyle}>
           <Text sx={optionStyle}>B</Text>
-          <Text>{Questions[currQuestion].optionB}</Text>
+          <Text>{questions[currQuestion].answers.answer_b}</Text>
         </Box>
 
-        <Box onClick={() => setOptionChosen('C')} sx={flexStyle}>
+        <Box onClick={() => setOptionChosen(questions[currQuestion].correct_answers.answer_c_correct)} sx={flexStyle}>
           <Text sx={optionStyle}>C</Text>
-          <Text>{Questions[currQuestion].optionC}</Text>
+          <Text>{questions[currQuestion].answers.answer_c}</Text>
         </Box>
 
-        <Box onClick={() => setOptionChosen('D')} sx={flexStyle}>
+        <Box onClick={() => setOptionChosen(questions[currQuestion].correct_answers.answer_d_correct)} sx={flexStyle}>
           <Text sx={optionStyle}>D</Text>
-          <Text>{Questions[currQuestion].optionD}</Text>
+          <Text>{questions[currQuestion].answers.answer_d}</Text>
         </Box>
 
-        {currQuestion === Questions.length - 1 ? (
+        {currQuestion === questions.length - 1 ? (
         <Box onClick={finishQuiz} sx={finishStyle}>
           <Text>Finish</Text>
           <Text sx={finishStyleOp}><FaRegCheckCircle /></Text>
