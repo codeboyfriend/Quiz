@@ -1,8 +1,8 @@
 import { 
-    Box,
-    Heading,
-    Text,
-    Modal,
+  Box,
+  Heading,
+  Text,
+  Modal,
   ModalContent,
   ModalBody,
   useDisclosure
@@ -12,41 +12,34 @@ import {
     FaUserFriends,
     FaPlay,
     FaBoxes,
-    FaFacebookMessenger
-    
+    FaFacebookMessenger 
 } from 'react-icons/fa';
 import { BsFillChatLeftDotsFill } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router-dom';
 
- const Home = ({ 
-    startGame
-}) => {
+ const Home = () => {
     const navigate = useNavigate();
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     const flexStyle = {
-        display: 'flex',
-        alignItems: 'center',
-        padding: '5px',
-        borderRadius: '20px',
-        cursor: 'pointer',
-        width: '250px',
-        bgColor: '#fff',
-        color: 'blue.800',
-        margin: '5px'
+      display: 'flex',
+      alignItems: 'center',
+      padding: '5px',
+      borderRadius: '20px',
+      cursor: 'pointer',
+      width: '250px',
+      bgColor: '#fff',
+      color: 'blue.800',
+      margin: '5px'
     }
 
     const iconStyle ={
-        bgColor: 'blue.800',
-        padding: '8px',
-        borderRadius: '100%',
-        marginRight: '15px',
-        fontSize: '1.2rem',
-        color: '#fff'
-    }
-
-    const loadData = () => {
-        navigate('/dashboard');
+      bgColor: 'blue.800',
+      padding: '8px',
+      borderRadius: '100%',
+      marginRight: '15px',
+      fontSize: '1.2rem',
+      color: '#fff'
     }
 
 return (
@@ -75,10 +68,8 @@ return (
         }}>
 
         <Box onClick={() => {
-            loadData()
-            startGame()
-        }   
-        } sx={flexStyle}>
+          navigate('/dashboard');
+        }} sx={flexStyle}>
             <Text sx={iconStyle}><FaPlay /></Text>
             <Text color={'blue.800'}>Play Quiz</Text>
         </Box>

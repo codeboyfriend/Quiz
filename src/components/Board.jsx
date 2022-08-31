@@ -1,3 +1,7 @@
+import { useContext } from "react";
+import { QuizContext } from "../Helpers/Contexts";
+import { Questions } from "../Helpers/QuestionBank";
+
 import { 
     Box,
     Text 
@@ -5,6 +9,8 @@ import {
 
 
 const Board = () => {
+    const { score, currQuestion, point } = useContext(QuizContext);
+
     const flexStyle = {
         display: 'flex',
         flexDir: 'column',
@@ -27,19 +33,19 @@ const Board = () => {
         m: '15px 0'
     }}>
         <Box sx={flexStyle}>
-            <Text sx={textStyle}>3/4</Text>
+            <Text sx={textStyle}>{ currQuestion + 1 } / { Questions.length }</Text>
             <Text>questions</Text>
         </Box>
 
         <Box sx={{
             border: '1px solid #fff',
-            padding: '10px 12px',
+            padding: '10px 17px',
             borderRadius: '100%',
             borderTopRightRadius: '1px solid #000'
-        }}>17</Box>
+        }}>{ score }</Box>
 
         <Box sx={flexStyle}>
-            <Text sx={textStyle}>10</Text>
+            <Text sx={textStyle}>{point}</Text>
             <Text>points</Text>
         </Box>
     </Box>
