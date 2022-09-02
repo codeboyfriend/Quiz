@@ -9,11 +9,19 @@ import {
 
 const EndScreen = () => {
   const navigate = useNavigate();
-  const { score, setScore, point, setPoint, questions } = useContext(QuizContext);
+  const { 
+    score, 
+    setScore, 
+    point, 
+    setPoint, 
+    questions,
+    setCurrQuestion 
+  } = useContext(QuizContext);
 
   const restartGame = () => { 
     setScore(0);
     setPoint(0);
+    setCurrQuestion(0)
     navigate('/home')
   }
 
@@ -57,7 +65,6 @@ const EndScreen = () => {
 
           <Box onClick={restartGame} sx={flexStyle}>
             <Text>Restart Quiz</Text>
-            {/* <Text sx={finishStyleOp}><ArrowRightIcon /></Text> */}
         </Box>
       </Box>
     </Box>

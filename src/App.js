@@ -20,19 +20,20 @@ function App() {
   const [currQuestion, setCurrQuestion] = useState(0);
   const [point, setPoint] = useState(0);
   const [name, setName] = useState("");
-  // const [tags, setTags] = useState('Easy');
+  const [tags, setTags] = useState('');
+  const [sound, setSound] = useState(true);
 
   const fetchQuestion = async () => {
-    const result = await axios(`https://quizapi.io/api/v1/questions?apiKey=${process.env.REACT_APP_API_KEY}&difficulty=${categories}`);
+    const result = await axios(`https://quizapi.io/api/v1/questions?apiKey=6cm1r5jVOf9rfQxLa6vxOceBaOXAvgYSdAag0ncz&difficulty=${categories}&tags=${tags}`);
     
     setQuestions(result.data);
   }
   
   useEffect(() => {
     fetchQuestion(); // eslint-disable-next-line
-  }, [categories])
+  }, [categories, tags])
 
-  // console.log(process.env.REACT_APP_API_KEY)
+  // console.log(process.env.REACT_APP_QUIZ_API_KEY)
 
   return (
     <Router>
@@ -52,7 +53,11 @@ function App() {
           kwizScore,
           setKwizScore,
           categories,
-          setCategories 
+          setCategories,
+          tags,
+          setTags,
+          sound,
+          setSound 
         }}>
           <Routes>
             <Route path="/" element={<Login />} />

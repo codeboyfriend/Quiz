@@ -41,11 +41,11 @@ const About = () => {
         </Box>
 
         <Box sx={{
-            mt: '20px'
+          mt: '20px'
         }}>
         <Link to='/home'>
             <Text sx={{
-                fontSize: '1.5rem'
+              fontSize: '1.5rem'
             }}><FaHome /></Text>
         </Link>
         </Box>

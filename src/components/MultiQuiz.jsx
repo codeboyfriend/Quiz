@@ -29,7 +29,8 @@ const MultiQuiz = () => {
   const nextQuestion = () => {
    if(optionChosen === 'true'){
       setPoint(point + 2);
-      setKwizScore(kwizScore + Math.floor(Math.random() * 5))
+      setKwizScore(kwizScore + Math.floor(Math.random() * 4));
+      setOptionChosen('');
     }
 
     setCurrQuestion(currQuestion + 1);

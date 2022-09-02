@@ -3,16 +3,17 @@ import {
     Text 
 } from "@chakra-ui/react";
 import { useContext } from "react";
-import { Questions } from "../../Helpers/QuestionBank";
+import { useNavigate } from "react-router-dom";
 import { QuizContext } from "../../Helpers/Contexts";
 import { Link } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 
 const Navbar = () => {
-  const { name, currQuestion, setCurrQuestion } = useContext(QuizContext);
+  const { name, currQuestion, questions } = useContext(QuizContext);
+  const navigate = useNavigate();
 
   const skipQuestion = () => { 
-    setCurrQuestion(currQuestion + 1)
+    navigate('/end')
   }
 
   return (
@@ -38,11 +39,11 @@ const Navbar = () => {
         }}>{name}</Text>
         </Link>
 
-      {currQuestion !== Questions.length - 1 && (
+      {currQuestion !== questions.length - 1 && (
        <Text onClick={skipQuestion} sx={{
-        fontSize: '12px',
+        fontSize: '15px',
         cursor: 'pointer'
-      }}>skip</Text>
+      }}>quit</Text>
       )}
     </Box>
   )

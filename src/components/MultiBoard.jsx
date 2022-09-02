@@ -10,7 +10,7 @@ const MultiBoard = () => {
         kwizScore, 
         currQuestion, 
         point, 
-        questions 
+        questions
     } = useContext(QuizContext);
 
     const flexStyle = {

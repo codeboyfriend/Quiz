@@ -8,7 +8,8 @@ import {
 } from "@chakra-ui/react";
 
 import { 
-  ArrowRightIcon
+  ArrowRightIcon,
+  ArrowLeftIcon
 } from "@chakra-ui/icons"; 
 
 import { FaRegCheckCircle } from "react-icons/fa";
@@ -31,9 +32,15 @@ const Quiz = () => {
    if(optionChosen === 'true'){
       setScore(score + 1);
       setPoint(point + 2);
+      setOptionChosen('');
     }
 
     setCurrQuestion(currQuestion + 1);
+  }
+
+  const prevQuestion = () => {
+    setOptionChosen('');
+    setCurrQuestion(currQuestion - 1);
   }
 
   const finishQuiz = () => {
@@ -78,12 +85,34 @@ const Quiz = () => {
     bgcolor: 'blue.800',
     border: "1px solid #fff",
     margin: '5px',
-    mt: '20px'
+    mt: '5px'
   }
 
   const finishStyleOp = {
     fontWeight: 'bold',
     marginLeft: '5px',
+    padding: '5px',
+    fontSize: '.8rem'
+  }
+
+  const prevStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '5px',
+    borderRadius: '20px',
+    cursor: 'pointer',
+    width: '250px',
+    bgcolor: 'blue.800',
+    border: "1px solid #fff",
+    margin: '5px',
+    m: '5px 0',
+    mt: '10px'
+  }
+
+  const prevStyleOp = {
+    fontWeight: 'bold',
+    marginRight: '5px',
     padding: '5px',
     fontSize: '.8rem'
   }
@@ -126,6 +155,13 @@ const Quiz = () => {
           <Text sx={optionStyle}>D</Text>
           <Text>{questions[currQuestion].answers.answer_d}</Text>
         </Box>
+
+        {currQuestion !== 0 && (
+          <Box onClick={prevQuestion} sx={prevStyle}>
+            <Text sx={prevStyleOp}><ArrowLeftIcon /></Text>
+            <Text>Prev</Text>
+          </Box>
+        )}
 
         {currQuestion === questions.length - 1 ? (
         <Box onClick={finishQuiz} sx={finishStyle}>

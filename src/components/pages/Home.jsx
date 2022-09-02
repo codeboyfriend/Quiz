@@ -1,14 +1,9 @@
 import { 
   Box,
   Heading,
-  Text,
-  Modal,
-  ModalContent,
-  ModalBody,
-  useDisclosure
+  Text
   } from "@chakra-ui/react";
 import {
-  FaChartBar,
   FaUserFriends,
   FaPlay,
   FaBoxes,
@@ -21,8 +16,12 @@ import { Link, useNavigate } from 'react-router-dom';
 
  const Home = () => {
     const navigate = useNavigate();
-    const { isOpen, onOpen, onClose } = useDisclosure();
-    const { setName } = useContext(QuizContext)
+    const { 
+      setName,
+      setCurrQuestion,
+      setScore,
+      setPoint 
+    } = useContext(QuizContext)
 
     const flexStyle = {
       display: 'flex',
@@ -47,6 +46,20 @@ import { Link, useNavigate } from 'react-router-dom';
 
     const resetName = () => {
       setName('')
+    }
+
+    const playFunc = () => {
+      navigate('/dashboard');
+      setCurrQuestion(0);
+      setScore(0);
+      setPoint(0);
+    }
+
+    const multiFunc = () => {
+      navigate('/multiplayer');
+      setCurrQuestion(0);
+      setScore(0);
+      setPoint(0);
     }
 
 return (
@@ -76,16 +89,12 @@ return (
           flexWrap: 'wrap'
         }}>
 
-        <Box onClick={() => {
-          navigate('/dashboard');
-        }} sx={flexStyle}>
+        <Box onClick={playFunc} sx={flexStyle}>
             <Text sx={iconStyle}><FaPlay /></Text>
             <Text color={'blue.800'}>Play Quiz</Text>
         </Box>
 
-        <Box onClick={() => {
-          navigate('/multiplayer');
-        }} sx={flexStyle}>
+        <Box onClick={multiFunc} sx={flexStyle}>
             <Text sx={iconStyle}><FaUserFriends /></Text>
             <Text>Multiplayer</Text>
         </Box>
@@ -96,12 +105,7 @@ return (
             <Text sx={iconStyle}><FaBoxes /></Text>
             <Text>Settings</Text>
         </Box>
-
-        <Box sx={flexStyle} onClick={onOpen}>
-            <Text sx={iconStyle}><FaChartBar /></Text>
-            <Text>Highest Score</Text>
-        </Box>
-        </Box>
+      </Box>
 
         {/* Footer component */}
         <Box sx={{
@@ -134,32 +138,6 @@ return (
         </Link>
         </Box>
     </Box>
-
-    <Modal 
-        isOpen={isOpen} 
-        onClose={onClose}
-        motionPreset='slideInBottom'
-    >
-        <ModalContent sx={{
-            w: '250px'
-        }}>
-        <ModalBody>
-         <Box sx={{
-             display: 'flex',
-             alignItems: 'center'
-            }}
-            ><Text sx={{
-            mr: '5px',
-            fontSize: '1.8rem',
-            mb: '10px'
-          }}><FaChartBar /></Text>
-            <Text>Highest Score :</Text>
-          </Box>
-
-          <Box><Text>120</Text></Box>
-        </ModalBody>
-        </ModalContent>
-    </Modal>
 </Box>
 )
 }

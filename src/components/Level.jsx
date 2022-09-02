@@ -16,17 +16,18 @@ const Level = () => {
         bg: 'blue.800',
         color: '#fff',
         display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDir: 'column'
+        alignItems: 'center'
     }}>
         <Box sx={{
-            mb: '10px'
+            m: '10px 0',
+            mr: '15px'
         }}>Select Level</Box>
         <select value={categories} onChange={(e) => setCategories(e.target.value)} style={{
             color: '#2a4365',
             fontSize: '12px',
-            fontWeight: '500'
+            fontWeight: '500',
+            padding: '3px',
+            outline: 'none'
         }}>
             <option value="Easy">Easy</option>
             <option value="Medium">Medium</option>
