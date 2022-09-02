@@ -1,22 +1,27 @@
+import { useContext } from "react";
+import { QuizContext } from "../Helpers/Contexts";
+
 import { 
     Box 
-} from "@chakra-ui/react"
-const Level = ({
-    categories,
-    setCategories
-}) => {
+} from "@chakra-ui/react";
+
+const Level = () => {
+    const {
+        categories,
+        setCategories
+    } = useContext(QuizContext);
+
   return (
     <Box sx={{
         bg: 'blue.800',
         color: '#fff',
-        h: '100vh',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         flexDir: 'column'
     }}>
         <Box sx={{
-            mb: '15px'
+            mb: '10px'
         }}>Select Level</Box>
         <select value={categories} onChange={(e) => setCategories(e.target.value)} style={{
             color: '#2a4365',

@@ -10,6 +10,7 @@ import {
 import { 
   ArrowRightIcon
 } from "@chakra-ui/icons"; 
+
 import { FaRegCheckCircle } from "react-icons/fa";
 
 
@@ -78,7 +79,7 @@ const Quiz = () => {
     border: "1px solid #fff",
     margin: '5px',
     mt: '20px'
-}
+  }
 
   const finishStyleOp = {
     fontWeight: 'bold',

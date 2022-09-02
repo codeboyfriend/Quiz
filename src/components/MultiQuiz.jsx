@@ -5,11 +5,12 @@ import { QuizContext } from "../Helpers/Contexts";
 import { 
     Box,
     Text
-  } from "@chakra-ui/react";
+} from "@chakra-ui/react";
 
 import { 
   ArrowRightIcon
 } from "@chakra-ui/icons"; 
+
 import { FaRegCheckCircle } from "react-icons/fa";
 
 const MultiQuiz = () => {

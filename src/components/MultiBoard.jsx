@@ -1,15 +1,17 @@
 import { useContext } from "react";
 import { QuizContext } from "../Helpers/Contexts";
-import { Questions } from "../Helpers/QuestionBank";
-
 import { 
     Box,
     Text 
 } from "@chakra-ui/react";
 
-
 const MultiBoard = () => {
-    const { kwizScore, currQuestion, point } = useContext(QuizContext);
+    const { 
+        kwizScore, 
+        currQuestion, 
+        point, 
+        questions 
+    } = useContext(QuizContext);
 
     const flexStyle = {
         display: 'flex',
@@ -42,7 +44,7 @@ const MultiBoard = () => {
             padding: '10px 17px',
             borderRadius: '100%',
             borderTopRightRadius: '1px solid #000'
-        }}>{ currQuestion + 1 } / { Questions.length }</Box>
+        }}>{ currQuestion + 1 } / { questions.length }</Box>
 
         <Box sx={flexStyle}>
             <Text sx={textStyle}>You</Text>

@@ -90,9 +90,11 @@ return (
             <Text>Multiplayer</Text>
         </Box>
 
-        <Box sx={flexStyle}>
+        <Box onClick={() => {
+          navigate('/categories');
+        }} sx={flexStyle}>
             <Text sx={iconStyle}><FaBoxes /></Text>
-            <Text>More categories</Text>
+            <Text>Settings</Text>
         </Box>
 
         <Box sx={flexStyle} onClick={onOpen}>

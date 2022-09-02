@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import Navbar from "../util/Navbar";
 import MultiBoard from "../MultiBoard";
-import MultiQuiz from "../MultiQuiz";
+// import MultiQuiz from "../MultiQuiz";
 
 const MultiPlayer = () => {
   return (
@@ -16,7 +16,7 @@ const MultiPlayer = () => {
           }}>
             <Navbar />
             <MultiBoard />
-            <MultiQuiz />
+            {/* <MultiQuiz /> */}
         </Box>
       </Box>
   )

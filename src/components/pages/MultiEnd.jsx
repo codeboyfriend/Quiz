@@ -6,7 +6,7 @@ import {
   Text,
   Heading 
 } from "@chakra-ui/react";
-import { ArrowRightIcon} from "@chakra-ui/icons"; 
+import { ArrowRightIcon} from "@chakra-ui/icons";
 
 const MultiEnd = () => {
   const navigate = useNavigate();
@@ -40,13 +40,14 @@ const MultiEnd = () => {
 
   let result;
 
+  // eslint-disable-next-line
   {
     if (kwizScore > point) {
-        result = 'You lose'
+      result = 'You lose'
     } else if (kwizScore < point){
-        result = 'You won'
+      result = 'You won'
     }else {
-        result = 'Draw'
+      result = 'Draw'
     }
   }
 

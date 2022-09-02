@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ChakraProvider, Box } from '@chakra-ui/react'; 
-// import theme from "./theme";
 import axios from "axios";
 import Home from "./components/pages/Home";
 import Dashboard from "./components/pages/Dashboard";
 import Login from "./components/pages/Login";
-// import Level from "./components/Level";
-import About from "./components/About";
+import About from "./components/pages/About";
 import EndScreen from "./components/pages/EndScreen";
 import MultiPlayer from "./components/pages/MultiPlayer";
-import MultiEnd from "./components/pages/MultiEnd"; 
-
+import MultiEnd from "./components/pages/MultiEnd";
+import Categories from "./components/pages/Categories"; 
 import { QuizContext } from "./Helpers/Contexts";
 
 function App() {
@@ -22,14 +20,19 @@ function App() {
   const [currQuestion, setCurrQuestion] = useState(0);
   const [point, setPoint] = useState(0);
   const [name, setName] = useState("");
+  // const [tags, setTags] = useState('Easy');
 
   const fetchQuestion = async () => {
-    const result = await axios(`https://quizapi.io/api/v1/questions?apiKey=6cm1r5jVOf9rfQxLa6vxOceBaOXAvgYSdAag0ncz&difficulty=${categories}`);
+    const result = await axios(`https://quizapi.io/api/v1/questions?apiKey=${process.env.REACT_APP_API_KEY}&difficulty=${categories}`);
     
     setQuestions(result.data);
   }
   
-  fetchQuestion()
+  useEffect(() => {
+    fetchQuestion(); // eslint-disable-next-line
+  }, [categories])
+
+  // console.log(process.env.REACT_APP_API_KEY)
 
   return (
     <Router>
@@ -47,7 +50,9 @@ function App() {
           name,
           setName,
           kwizScore,
-          setKwizScore 
+          setKwizScore,
+          categories,
+          setCategories 
         }}>
           <Routes>
             <Route path="/" element={<Login />} />
@@ -57,6 +62,7 @@ function App() {
             <Route path="/multiend" element={<MultiEnd />} />
             <Route path="/about" element={<About />} />
             <Route path="/multiplayer" element={<MultiPlayer />} />
+            <Route path="/categories" element={<Categories />} />
           </Routes>
         </QuizContext.Provider>
     </Box>
