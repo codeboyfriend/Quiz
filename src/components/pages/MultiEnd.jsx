@@ -19,9 +19,9 @@ const MultiEnd = () => {
 } = useContext(QuizContext);
 
   const restartGame = () => { 
+    setKwizScore(0);
     setScore(0);
     setPoint(0);
-    setKwizScore(0);
     navigate('/home')
   }
 

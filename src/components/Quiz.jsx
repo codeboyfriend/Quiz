@@ -27,12 +27,14 @@ const Quiz = () => {
     questions 
   } = useContext(QuizContext);
   const [optionChosen, setOptionChosen] = useState("");
+  const [optionChosenBG, setOptionChosenBG] = useState("A");
 
   const nextQuestion = () => {
    if(optionChosen === 'true'){
       setScore(score + 1);
       setPoint(point + 2);
       setOptionChosen('');
+      setOptionChosenBG('A');
     }
 
     setCurrQuestion(currQuestion + 1);
@@ -137,7 +139,7 @@ const Quiz = () => {
         flexWrap: 'wrap'
       }}>
         <Box onClick={() => setOptionChosen(questions[currQuestion].correct_answers.answer_a_correct)} sx={flexStyle}>
-          <Text sx={optionStyle}>A</Text>
+          <Text sx={optionStyle} backgroundColor={optionChosenBG === 'A' ? 'red' : ''}>A</Text>
           <Text>{questions[currQuestion].answers.answer_a}</Text>
         </Box>
 
