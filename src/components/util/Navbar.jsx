@@ -3,17 +3,21 @@ import {
     Text 
 } from "@chakra-ui/react";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { QuizContext } from "../../Helpers/Contexts";
-import { Link } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 
 const Navbar = () => {
   const { name, currQuestion, questions } = useContext(QuizContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const skipQuestion = () => { 
+  const skipPlayQuestion = () => { 
     navigate('/end')
+  }
+
+  const skipMultiQuestion = () => { 
+    navigate('/multiend')
   }
 
   return (
@@ -38,13 +42,29 @@ const Navbar = () => {
           fontWeight: '500'
         }}>{name}</Text>
         </Link>
+      {
+        location.pathname === '/multiplayer' &&
+        <Box>
+          {currQuestion !== questions.length - 1 && (
+            <Text onClick={skipMultiQuestion} sx={{
+              fontSize: '15px',
+              cursor: 'pointer'
+            }}>quit</Text>
+          )}
+        </Box>
+      }
 
-      {currQuestion !== questions.length - 1 && (
-       <Text onClick={skipQuestion} sx={{
-        fontSize: '15px',
-        cursor: 'pointer'
-      }}>quit</Text>
-      )}
+      {
+        location.pathname !== '/multiplayer' &&
+        <Box>
+          {currQuestion !== questions.length - 1 && (
+            <Text onClick={skipPlayQuestion} sx={{
+              fontSize: '15px',
+              cursor: 'pointer'
+            }}>quit</Text>
+          )}
+        </Box>
+      }
     </Box>
   )
 }

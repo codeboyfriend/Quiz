@@ -20,8 +20,14 @@ import { Link, useNavigate } from 'react-router-dom';
       setName,
       setCurrQuestion,
       setScore,
-      setPoint 
+      setPoint,
+      ButtonSound,
+      soundMode 
     } = useContext(QuizContext)
+
+    const play = () => {
+      new Audio(ButtonSound).play()
+    }
 
     const flexStyle = {
       display: 'flex',
@@ -45,10 +51,18 @@ import { Link, useNavigate } from 'react-router-dom';
     }
 
     const resetName = () => {
+      // eslint-disable-next-line
+      {
+        soundMode && play();
+      }
       setName('')
     }
 
     const playFunc = () => {
+      // eslint-disable-next-line
+      {
+        soundMode && play();
+      }
       navigate('/dashboard');
       setCurrQuestion(0);
       setScore(0);
@@ -56,6 +70,10 @@ import { Link, useNavigate } from 'react-router-dom';
     }
 
     const multiFunc = () => {
+      // eslint-disable-next-line
+      {
+        soundMode && play();
+      }
       navigate('/multiplayer');
       setCurrQuestion(0);
       setScore(0);
@@ -100,7 +118,11 @@ return (
         </Box>
 
         <Box onClick={() => {
-          navigate('/categories');
+          // eslint-disable-next-line
+          {
+            soundMode && play();
+          }
+          navigate('/settings');
         }} sx={flexStyle}>
             <Text sx={iconStyle}><FaBoxes /></Text>
             <Text>Settings</Text>
@@ -113,7 +135,9 @@ return (
         justifyContent: 'center',
         alignItems: 'center'
         }}>
-        <Box sx={{
+        <Box onClick={() => {
+            soundMode && play();
+          }} sx={{
              margin: '0 10px',
              display: 'flex',
              alignItems: 'center'
@@ -125,7 +149,9 @@ return (
         </Box>
         
         <Link to={'/about'}>
-          <Box sx={{
+          <Box onClick={() => {
+              soundMode && play();
+            }} sx={{
              margin: '0 10px',
              display: 'flex',
              alignItems: 'center'

@@ -1,16 +1,20 @@
 import { 
-    Box,
-    Text,
-    Heading,
-    Input,
-    useToast 
+  Box,
+  Text,
+  Heading,
+  Input,
+  useToast 
 } from "@chakra-ui/react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { QuizContext } from "../../Helpers/Contexts";
 
 const Login = () => {
-  const { name, setName } = useContext(QuizContext);
+  const { 
+    name, 
+    setName, 
+    ButtonSound 
+  } = useContext(QuizContext);
   const toast = useToast();
 
   const flexStyle = {
@@ -28,7 +32,12 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+  const play = () => {
+    new Audio(ButtonSound).play()
+  }
+
   const login = () => {
+    play()
     name !== '' && navigate('/home')
   }
 

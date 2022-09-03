@@ -9,19 +9,33 @@ import {
 
 const EndScreen = () => {
   const navigate = useNavigate();
+
   const { 
     score, 
     setScore, 
     point, 
     setPoint, 
     questions,
-    setCurrQuestion 
+    setCurrQuestion,
+    refresh,
+    setRefresh,
+    ButtonSound,
+    soundMode  
   } = useContext(QuizContext);
 
-  const restartGame = () => { 
+  const play = () => {
+    new Audio(ButtonSound).play()
+  }
+
+  const restartGame = () => {
+    // eslint-disable-next-line
+    {
+      soundMode && play();
+    } 
     setScore(0);
     setPoint(0);
-    setCurrQuestion(0)
+    setCurrQuestion(0);
+    setRefresh(!refresh);
     navigate('/home')
   }
 

@@ -11,6 +11,7 @@ import MultiPlayer from "./components/pages/MultiPlayer";
 import MultiEnd from "./components/pages/MultiEnd";
 import Categories from "./components/pages/Categories"; 
 import { QuizContext } from "./Helpers/Contexts";
+import ButtonSound from '../src/assets/buttonSound.mp3';
 
 function App() {
   const [questions, setQuestions] = useState([]);
@@ -22,6 +23,8 @@ function App() {
   const [name, setName] = useState("");
   const [tags, setTags] = useState('');
   const [sound, setSound] = useState(true);
+  const [soundMode, setSoundMode] = useState(true);
+  const [refresh, setRefresh] = useState(true);
 
   const fetchQuestion = async () => {
     const result = await axios(`https://quizapi.io/api/v1/questions?apiKey=6cm1r5jVOf9rfQxLa6vxOceBaOXAvgYSdAag0ncz&difficulty=${categories}&tags=${tags}`);
@@ -31,9 +34,9 @@ function App() {
   
   useEffect(() => {
     fetchQuestion(); // eslint-disable-next-line
-  }, [categories, tags])
+  }, [categories, tags, refresh]);
 
-  // console.log(process.env.REACT_APP_QUIZ_API_KEY)
+   // console.log(process.env.REACT_APP_QUIZ_API_KEY)
 
   return (
     <Router>
@@ -57,7 +60,12 @@ function App() {
           tags,
           setTags,
           sound,
-          setSound 
+          setSound,
+          refresh,
+          setRefresh,
+          soundMode,
+          setSoundMode,
+          ButtonSound
         }}>
           <Routes>
             <Route path="/" element={<Login />} />
@@ -67,7 +75,7 @@ function App() {
             <Route path="/multiend" element={<MultiEnd />} />
             <Route path="/about" element={<About />} />
             <Route path="/multiplayer" element={<MultiPlayer />} />
-            <Route path="/categories" element={<Categories />} />
+            <Route path="/settings" element={<Categories />} />
           </Routes>
         </QuizContext.Provider>
     </Box>

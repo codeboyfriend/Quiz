@@ -5,8 +5,18 @@ import {
 } from "@chakra-ui/react";
 import { FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { QuizContext } from "../../Helpers/Contexts";
 
 const About = () => {
+  const { 
+    ButtonSound 
+  } = useContext(QuizContext);
+
+  const play = () => {
+    new Audio(ButtonSound).play()
+  }
+
   return (
     <Box sx={{
         h: '100vh',
@@ -44,7 +54,9 @@ const About = () => {
           mt: '20px'
         }}>
         <Link to='/home'>
-            <Text sx={{
+            <Text onClick={() => {
+            play()
+          }} sx={{
               fontSize: '1.5rem'
             }}><FaHome /></Text>
         </Link>

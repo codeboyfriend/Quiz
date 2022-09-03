@@ -15,14 +15,27 @@ const MultiEnd = () => {
     point, 
     setPoint, 
     kwizScore, 
-    setKwizScore 
+    setKwizScore,
+    refresh,
+    setRefresh,
+    ButtonSound,
+    soundMode 
 } = useContext(QuizContext);
 
+const play = () => {
+  new Audio(ButtonSound).play()
+}
+
   const restartGame = () => { 
+    // eslint-disable-next-line
+    {
+      soundMode && play();
+    }
     setKwizScore(0);
     setScore(0);
     setPoint(0);
-    navigate('/home')
+    setRefresh(!refresh);
+    navigate('/home');
   }
 
   const flexStyle = {
@@ -39,7 +52,6 @@ const MultiEnd = () => {
   }
 
   let result;
-
   // eslint-disable-next-line
   {
     if (kwizScore > point) {

@@ -1,13 +1,26 @@
 import { 
     Box,
-    Heading 
+    Heading,
+    Text 
 } from "@chakra-ui/react";
+import { useContext } from "react";
+import { QuizContext } from "../../Helpers/Contexts";
 import { FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Level from "../Level";
 import Tags from "../Tags";
 
 const Categories = () => {
+    const { 
+        ButtonSound,
+        soundMode,
+        setSoundMode 
+    } = useContext(QuizContext);
+
+    const play = () => {
+        new Audio(ButtonSound).play()
+    }
+
   return (
     <Box sx={{
         h: '100vh',
@@ -39,11 +52,29 @@ const Categories = () => {
         }}>
             <Tags />
             <Level />
+
+            <Box sx={{
+                textAlign: 'start'
+            }}>
+                <Text 
+                  onClick={() => setSoundMode(!soundMode)}>Sound: 
+                  <button style={{
+                    backgroundColor: '#fff',
+                    color: '#2a4365',
+                    fontSize: '12px',
+                    fontWeight: '500',
+                    padding: '3px 10px',
+                    marginLeft: '15px'
+                  }}>{soundMode ? 'Off' : 'On'}</button>
+                </Text>
+            </Box>
         </Box>
 
         
         </Box>
-        <Box sx={{
+        <Box onClick={() => {
+              soundMode && play();
+            }} sx={{
             fontSize: '1.5rem',
             alignSelf: 'center',
             mt: '20px'
