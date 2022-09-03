@@ -24,34 +24,45 @@ const MultiQuiz = () => {
     point,
     kwizScore,
     setKwizScore,
-    questions 
+    questions ,
+    ButtonSound
   } = useContext(QuizContext);
   const [optionChosen, setOptionChosen] = useState("");
-//   const [optionChosenBG, setOptionChosenBG] = useState("A");
+  const [optionChosenBG, setOptionChosenBG] = useState("");
+
+  const play = () => {
+    new Audio(ButtonSound).play()
+  }
 
   const nextQuestion = () => {
     if(optionChosen === 'true'){
-        setPoint(point + 2);
-        setOptionChosen('');
+      setPoint(point + 2);
+      setOptionChosen('');
     }
 
-    setKwizScore(kwizScore + Math.floor(Math.random() * 3));
-    setCurrQuestion(currQuestion + 1);
+    play();
+    setOptionChosenBG('');
+      setKwizScore(kwizScore + Math.floor(Math.random() * 3));
+      setCurrQuestion(currQuestion + 1);
     }
 
     const prevQuestion = () => {
-        setOptionChosen('');
-        setKwizScore(kwizScore - Math.floor(Math.random() * 2));
-        setCurrQuestion(currQuestion - 1);
-      }
-
-    const finishQuiz = () => {
-    if(optionChosen === 'true'){
-        setPoint(point + 2);
+      play();
+      setOptionChosen('');
+      setOptionChosenBG('');
+      setKwizScore(kwizScore - Math.floor(Math.random() * 2));
+      setCurrQuestion(currQuestion - 1);
     }
 
-    setCurrQuestion(0);
-    navigate('/multiend');
+    const finishQuiz = () => {
+      if(optionChosen === 'true'){
+        setPoint(point + 2);
+      }
+    
+      play();
+      setOptionChosenBG('');
+      setCurrQuestion(0);
+      navigate('/multiend');
     }
 
   const flexStyle = {
@@ -61,7 +72,6 @@ const MultiQuiz = () => {
     borderRadius: '20px',
     cursor: 'pointer',
     width: '250px',
-    bgColor: '#fff',
     color: 'blue.800',
     margin: '5px'
   }
@@ -137,22 +147,38 @@ const MultiQuiz = () => {
         justifyContent: 'center',
         flexWrap: 'wrap'
       }}>
-        <Box onClick={() => setOptionChosen(questions[currQuestion].correct_answers.answer_a_correct)} sx={flexStyle}>
+        <Box onClick={() => {
+          play();
+          setOptionChosenBG('A');
+          setOptionChosen(questions[currQuestion].correct_answers.answer_a_correct);
+        }} sx={flexStyle} bgColor={optionChosenBG === 'A' ? 'red.500' : '#fff'}>
           <Text sx={optionStyle}>A</Text>
           <Text>{questions[currQuestion].answers.answer_a}</Text>
         </Box>
 
-        <Box onClick={() => setOptionChosen(questions[currQuestion].correct_answers.answer_b_correct)} sx={flexStyle}>
+        <Box onClick={() => {
+          play();
+          setOptionChosenBG('B');
+          setOptionChosen(questions[currQuestion].correct_answers.answer_b_correct);
+        }} sx={flexStyle} bgColor={optionChosenBG === 'B' ? 'red.500' : '#fff'}>
           <Text sx={optionStyle}>B</Text>
           <Text>{questions[currQuestion].answers.answer_b}</Text>
         </Box>
 
-        <Box onClick={() => setOptionChosen(questions[currQuestion].correct_answers.answer_c_correct)} sx={flexStyle}>
+        <Box onClick={() => {
+          play();
+          setOptionChosenBG('C');
+          setOptionChosen(questions[currQuestion].correct_answers.answer_c_correct);
+        }} sx={flexStyle} bgColor={optionChosenBG === 'C' ? 'red.500' : '#fff'}>
           <Text sx={optionStyle}>C</Text>
           <Text>{questions[currQuestion].answers.answer_c}</Text>
         </Box>
 
-        <Box onClick={() => setOptionChosen(questions[currQuestion].correct_answers.answer_d_correct)} sx={flexStyle}>
+        <Box onClick={() => {
+          play();
+          setOptionChosenBG('D');
+          setOptionChosen(questions[currQuestion].correct_answers.answer_d_correct);
+        }} sx={flexStyle} bgColor={optionChosenBG === 'D' ? 'red.500' : '#fff'}>
           <Text sx={optionStyle}>D</Text>
           <Text>{questions[currQuestion].answers.answer_d}</Text>
         </Box>

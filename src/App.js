@@ -11,7 +11,9 @@ import MultiPlayer from "./components/pages/MultiPlayer";
 import MultiEnd from "./components/pages/MultiEnd";
 import Categories from "./components/pages/Categories"; 
 import { QuizContext } from "./Helpers/Contexts";
+import BGsound from '../src/assets/sound.mp3';
 import ButtonSound from '../src/assets/buttonSound.mp3';
+import ErrorSound from '../src/assets/errorSound.mp3';
 
 function App() {
   const [questions, setQuestions] = useState([]);
@@ -23,6 +25,7 @@ function App() {
   const [name, setName] = useState("");
   const [tags, setTags] = useState('');
   const [sound, setSound] = useState(true);
+  const [sfxMode, setSfxMode] = useState(true);
   const [soundMode, setSoundMode] = useState(true);
   const [refresh, setRefresh] = useState(true);
 
@@ -31,8 +34,18 @@ function App() {
     
     setQuestions(result.data);
   }
+
+  const play = () => {
+    new Audio(BGsound).play()
+  }
   
   useEffect(() => {
+    // eslint-disable-next-line
+    {
+      soundMode && play()
+    }
+
+    // play()
     fetchQuestion(); // eslint-disable-next-line
   }, [categories, tags, refresh]);
 
@@ -64,8 +77,12 @@ function App() {
           refresh,
           setRefresh,
           soundMode,
+          sfxMode,
+          setSfxMode,
           setSoundMode,
-          ButtonSound
+          BGsound,
+          ButtonSound,
+          ErrorSound
         }}>
           <Routes>
             <Route path="/" element={<Login />} />

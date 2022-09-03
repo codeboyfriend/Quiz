@@ -14,7 +14,9 @@ const Categories = () => {
     const { 
         ButtonSound,
         soundMode,
-        setSoundMode 
+        setSoundMode,
+        sfxMode,
+        setSfxMode 
     } = useContext(QuizContext);
 
     const play = () => {
@@ -54,7 +56,8 @@ const Categories = () => {
             <Level />
 
             <Box sx={{
-                textAlign: 'start'
+                textAlign: 'start',
+                m: '10px 0'
             }}>
                 <Text 
                   onClick={() => setSoundMode(!soundMode)}>Sound: 
@@ -68,12 +71,29 @@ const Categories = () => {
                   }}>{soundMode ? 'Off' : 'On'}</button>
                 </Text>
             </Box>
+
+            <Box sx={{
+                textAlign: 'start',
+                m: '10px 0'
+            }}>
+                <Text 
+                  onClick={() => setSfxMode(!sfxMode)}>SFX: 
+                  <button style={{
+                    backgroundColor: '#fff',
+                    color: '#2a4365',
+                    fontSize: '12px',
+                    fontWeight: '500',
+                    padding: '3px 10px',
+                    marginLeft: '15px'
+                  }}>{sfxMode ? 'Off' : 'On'}</button>
+                </Text>
+            </Box>
         </Box>
 
         
         </Box>
         <Box onClick={() => {
-              soundMode && play();
+              sfxMode && play();
             }} sx={{
             fontSize: '1.5rem',
             alignSelf: 'center',

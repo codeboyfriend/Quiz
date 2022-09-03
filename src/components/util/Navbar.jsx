@@ -8,16 +8,22 @@ import { QuizContext } from "../../Helpers/Contexts";
 import { FaHome } from "react-icons/fa";
 
 const Navbar = () => {
-  const { name, currQuestion, questions } = useContext(QuizContext);
+  const { name, currQuestion, questions, ButtonSound } = useContext(QuizContext);
   const navigate = useNavigate();
   const location = useLocation();
 
-  const skipPlayQuestion = () => { 
-    navigate('/end')
+  const play = () => {
+    new Audio(ButtonSound).play()
+  }
+
+  const skipPlayQuestion = () => {
+    play(); 
+    navigate('/end');
   }
 
   const skipMultiQuestion = () => { 
-    navigate('/multiend')
+    play();
+    navigate('/multiend');
   }
 
   return (
@@ -31,9 +37,9 @@ const Navbar = () => {
         boxShadow: '0px 1px 2px rgba'
     }}>
         <Link to='/home'>
-        <Text sx={{
-          fontSize: '1.4rem'
-        }}><FaHome /></Text>
+          <Text onClick={play} sx={{
+            fontSize: '1.4rem'
+          }}><FaHome /></Text>
         </Link>
 
         <Link to='/home'>

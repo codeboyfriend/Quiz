@@ -10,7 +10,8 @@ import { QuizContext } from "../../Helpers/Contexts";
 
 const About = () => {
   const { 
-    ButtonSound 
+    ButtonSound,
+    sfxMode 
   } = useContext(QuizContext);
 
   const play = () => {
@@ -46,7 +47,7 @@ const About = () => {
             p: '20px 10px',
             textAlign: 'left'
           }}>
-            Text in production.......... not yet deploy........Text in production.......... not yet deploy........Text in production.......... not yet deploy........Text in production.......... not yet deploy........Text in production.......... not yet deploy........Text in production.......... not yet deploy........Text in production.......... not yet deploy........
+            Kwiz is a web application, and enable the user to undertake a series of questions on different technologies. The app is user friendly, and shall find it extremely easy to answer the multiple-choice questions. At the end of the quiz, a result-report is generated which states the score. There is also component for multiplayer with kwiz robot. 
           </Text>
         </Box>
 
@@ -55,8 +56,8 @@ const About = () => {
         }}>
         <Link to='/home'>
             <Text onClick={() => {
-            play()
-          }} sx={{
+              sfxMode && play();
+            }} sx={{
               fontSize: '1.5rem'
             }}><FaHome /></Text>
         </Link>
