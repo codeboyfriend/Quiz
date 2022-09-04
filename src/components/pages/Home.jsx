@@ -5,11 +5,11 @@ import {
   } from "@chakra-ui/react";
 import {
   FaUserFriends,
-  FaPlay,
-  FaBoxes,
-  FaFacebookMessenger 
+  FaPlay 
 } from 'react-icons/fa';
+import { IoSettings } from 'react-icons/io5'
 import { BsFillChatLeftDotsFill } from 'react-icons/bs';
+import { FiHelpCircle } from 'react-icons/fi';
 import { useContext } from "react";
 import { QuizContext } from "../../Helpers/Contexts";
 import { Link, useNavigate } from 'react-router-dom';
@@ -51,18 +51,12 @@ import { Link, useNavigate } from 'react-router-dom';
     }
 
     const resetName = () => {
-      // eslint-disable-next-line
-      {
-        sfxMode && play();
-      }
+      sfxMode && play();
       setName('')
     }
 
     const playFunc = () => {
-      // eslint-disable-next-line
-      {
-        sfxMode && play();
-      }
+      sfxMode && play();
       navigate('/dashboard');
       setCurrQuestion(0);
       setScore(0);
@@ -70,10 +64,7 @@ import { Link, useNavigate } from 'react-router-dom';
     }
 
     const multiFunc = () => {
-      // eslint-disable-next-line
-      {
-        sfxMode && play();
-      }
+      sfxMode && play();
       navigate('/multiplayer');
       setCurrQuestion(0);
       setScore(0);
@@ -82,13 +73,14 @@ import { Link, useNavigate } from 'react-router-dom';
 
 return (
 <Box sx={{
+    height: '100vh',
     bgColor: 'blue.800',
     color: '#fff',
 }}>
     <Box sx={{
         maxW: '700px',
         m: '0 auto',
-        height: '100vh',
+        h: '100%',
         display: 'flex',
         justifyContent: 'space-between',
         padding: '40px 0',
@@ -118,13 +110,10 @@ return (
         </Box>
 
         <Box onClick={() => {
-          // eslint-disable-next-line
-          {
-            sfxMode && play();
-          }
+          sfxMode && play();
           navigate('/settings');
         }} sx={flexStyle}>
-            <Text sx={iconStyle}><FaBoxes /></Text>
+            <Text sx={iconStyle}><IoSettings /></Text>
             <Text>Settings</Text>
         </Box>
       </Box>
@@ -144,7 +133,7 @@ return (
             }}
           ><Text sx={{
             mr: '5px'
-          }}><FaFacebookMessenger /></Text>
+          }}><FiHelpCircle /></Text>
             <Text>Help</Text>
         </Box>
         

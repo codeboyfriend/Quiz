@@ -54,13 +54,13 @@ const About = () => {
         <Box sx={{
           mt: '20px'
         }}>
-        <Link to='/home'>
-            <Text onClick={() => {
-              sfxMode && play();
-            }} sx={{
-              fontSize: '1.5rem'
-            }}><FaHome /></Text>
-        </Link>
+          <Link to='/home'>
+              <Text onClick={() => {
+                sfxMode && play();
+              }} sx={{
+                fontSize: '1.5rem'
+              }}><FaHome /></Text>
+          </Link>
         </Box>
     </Box>
   )

@@ -60,7 +60,10 @@ const Categories = () => {
                 m: '10px 0'
             }}>
                 <Text 
-                  onClick={() => setSoundMode(!soundMode)}>Sound: 
+                  onClick={() => {
+                    setSoundMode(!soundMode);
+                    sfxMode && play();
+                  }}>Sound: 
                   <button style={{
                     backgroundColor: '#fff',
                     color: '#2a4365',
@@ -77,7 +80,10 @@ const Categories = () => {
                 m: '10px 0'
             }}>
                 <Text 
-                  onClick={() => setSfxMode(!sfxMode)}>SFX: 
+                  onClick={() => {
+                    setSfxMode(!sfxMode);
+                    !sfxMode && play();
+                  }}>SFX: 
                   <button style={{
                     backgroundColor: '#fff',
                     color: '#2a4365',

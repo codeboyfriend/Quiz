@@ -25,7 +25,8 @@ const Quiz = () => {
     setPoint, 
     point, 
     questions,
-    ButtonSound
+    ButtonSound,
+    sfxMode
   } = useContext(QuizContext);
   const [optionChosen, setOptionChosen] = useState("");
   const [optionChosenBG, setOptionChosenBG] = useState("");
@@ -35,20 +36,20 @@ const Quiz = () => {
   }
 
   const nextQuestion = () => {
-   if(optionChosen === 'true'){
+    if(optionChosen === 'true'){
       setScore(score + 1);
       setPoint(point + 2);
       setOptionChosen('');
       setOptionChosenBG('A');
     }
     
-    play();
+    sfxMode && play();
     setOptionChosenBG('');
     setCurrQuestion(currQuestion + 1);
   }
 
   const prevQuestion = () => {
-    play();
+    sfxMode && play();
     setOptionChosen('');
     setOptionChosenBG('');
     setCurrQuestion(currQuestion - 1);
@@ -60,7 +61,7 @@ const Quiz = () => {
       setPoint(point + 2);
     }
 
-    play();
+    sfxMode && play();
     setOptionChosenBG('');
     setCurrQuestion(0);
     navigate('/end');
@@ -149,7 +150,7 @@ const Quiz = () => {
         flexWrap: 'wrap'
       }}>
         <Box onClick={() => {
-          play();
+          sfxMode && play();
           setOptionChosenBG('A');
           setOptionChosen(questions[currQuestion].correct_answers.answer_a_correct);
         }} sx={flexStyle} bgColor={optionChosenBG === 'A' ? 'red.500' : '#fff'}>
@@ -158,7 +159,7 @@ const Quiz = () => {
         </Box>
 
         <Box onClick={() => {
-          play();
+          sfxMode && play();
           setOptionChosenBG('B');
           setOptionChosen(questions[currQuestion].correct_answers.answer_b_correct);
         }} sx={flexStyle} bgColor={optionChosenBG === 'B' ? 'red.500' : '#fff'}>
@@ -167,7 +168,7 @@ const Quiz = () => {
         </Box>
 
         <Box onClick={() => {
-          play();
+          sfxMode && play();
           setOptionChosenBG('C');
           setOptionChosen(questions[currQuestion].correct_answers.answer_c_correct);
         }} sx={flexStyle} bgColor={optionChosenBG === 'C' ? 'red.500' : '#fff'}>
@@ -176,7 +177,7 @@ const Quiz = () => {
         </Box>
 
         <Box onClick={() => {
-          play();
+          sfxMode && play();
           setOptionChosenBG('D');
           setOptionChosen(questions[currQuestion].correct_answers.answer_d_correct);
         }} sx={flexStyle} bgColor={optionChosenBG === 'D' ? 'red.500' : '#fff'}>

@@ -19,7 +19,7 @@ const MultiEnd = () => {
     refresh,
     setRefresh,
     ButtonSound,
-    soundMode 
+    sfxMode 
 } = useContext(QuizContext);
 
 const play = () => {
@@ -27,10 +27,7 @@ const play = () => {
 }
 
   const restartGame = () => { 
-    // eslint-disable-next-line
-    {
-      soundMode && play();
-    }
+    sfxMode && play();
     setKwizScore(0);
     setScore(0);
     setPoint(0);

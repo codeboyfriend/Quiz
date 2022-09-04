@@ -8,8 +8,14 @@ import {
 const Tags = () => {
     const {
         tags,
-        setTags
+        setTags,
+        sfxMode,
+        ButtonSound
     } = useContext(QuizContext);
+
+    const play = () => {
+        new Audio(ButtonSound).play()
+      }
 
   return (
     <Box sx={{
@@ -22,7 +28,10 @@ const Tags = () => {
             mb: '10px',
             mr: '15px'
         }}>Select Categories</Box>
-        <select value={tags} onChange={(e) => setTags(e.target.value)} style={{
+        <select value={tags} onChange={(e) => {
+            sfxMode && play();
+            setTags(e.target.value)
+        }} style={{
             color: '#2a4365',
             fontSize: '12px',
             fontWeight: '500',

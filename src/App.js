@@ -26,30 +26,39 @@ function App() {
   const [tags, setTags] = useState('');
   const [sound, setSound] = useState(true);
   const [sfxMode, setSfxMode] = useState(true);
-  const [soundMode, setSoundMode] = useState(true);
+  const [soundMode, setSoundMode] = useState(false);
   const [refresh, setRefresh] = useState(true);
+  const [isLoading, setIsLoading] = useState(true)
 
   const fetchQuestion = async () => {
     const result = await axios(`https://quizapi.io/api/v1/questions?apiKey=6cm1r5jVOf9rfQxLa6vxOceBaOXAvgYSdAag0ncz&difficulty=${categories}&tags=${tags}`);
     
     setQuestions(result.data);
+    setIsLoading(false);
   }
 
   const play = () => {
     new Audio(BGsound).play()
   }
+
+  const pause = () => {
+    new Audio(BGsound).pause()
+  }
+
+
   
   useEffect(() => {
-    // eslint-disable-next-line
-    {
-      soundMode && play()
-    }
-
-    // play()
     fetchQuestion(); // eslint-disable-next-line
   }, [categories, tags, refresh]);
 
-   // console.log(process.env.REACT_APP_QUIZ_API_KEY)
+  // useEffect(() => {
+  //   if(soundMode === true){
+  //     play();
+  //   }
+  //   // eslint-disable-next-line
+  // }, [soundMode])
+
+  {soundMode ? play() : pause()}
 
   return (
     <Router>
@@ -82,7 +91,8 @@ function App() {
           setSoundMode,
           BGsound,
           ButtonSound,
-          ErrorSound
+          ErrorSound,
+          isLoading
         }}>
           <Routes>
             <Route path="/" element={<Login />} />

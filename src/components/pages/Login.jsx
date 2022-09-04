@@ -33,12 +33,12 @@ const Login = () => {
   const navigate = useNavigate();
 
   const play = () => {
-    new Audio(ButtonSound).play()
+    new Audio(ButtonSound).play();
   }
 
   const login = () => {
-    play()
-    name !== '' && navigate('/home')
+    play();
+    name !== '' && navigate('/home');
   }
 
   const emptyToast = () => {
@@ -48,7 +48,7 @@ const Login = () => {
       status: 'error',
       duration: '2000',
       position: 'bottom-left'
-    }) 
+    }); 
  }
 
   return (

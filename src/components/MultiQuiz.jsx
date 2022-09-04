@@ -24,8 +24,9 @@ const MultiQuiz = () => {
     point,
     kwizScore,
     setKwizScore,
-    questions ,
-    ButtonSound
+    questions,
+    ButtonSound,
+    sfxMode
   } = useContext(QuizContext);
   const [optionChosen, setOptionChosen] = useState("");
   const [optionChosenBG, setOptionChosenBG] = useState("");
@@ -40,14 +41,14 @@ const MultiQuiz = () => {
       setOptionChosen('');
     }
 
-    play();
+    sfxMode && play();
     setOptionChosenBG('');
       setKwizScore(kwizScore + Math.floor(Math.random() * 3));
       setCurrQuestion(currQuestion + 1);
     }
 
     const prevQuestion = () => {
-      play();
+      sfxMode && play();
       setOptionChosen('');
       setOptionChosenBG('');
       setKwizScore(kwizScore - Math.floor(Math.random() * 2));
@@ -59,7 +60,7 @@ const MultiQuiz = () => {
         setPoint(point + 2);
       }
     
-      play();
+      sfxMode && play();
       setOptionChosenBG('');
       setCurrQuestion(0);
       navigate('/multiend');
@@ -148,7 +149,7 @@ const MultiQuiz = () => {
         flexWrap: 'wrap'
       }}>
         <Box onClick={() => {
-          play();
+          sfxMode && play();
           setOptionChosenBG('A');
           setOptionChosen(questions[currQuestion].correct_answers.answer_a_correct);
         }} sx={flexStyle} bgColor={optionChosenBG === 'A' ? 'red.500' : '#fff'}>
@@ -157,7 +158,7 @@ const MultiQuiz = () => {
         </Box>
 
         <Box onClick={() => {
-          play();
+          sfxMode && play();
           setOptionChosenBG('B');
           setOptionChosen(questions[currQuestion].correct_answers.answer_b_correct);
         }} sx={flexStyle} bgColor={optionChosenBG === 'B' ? 'red.500' : '#fff'}>
@@ -166,7 +167,7 @@ const MultiQuiz = () => {
         </Box>
 
         <Box onClick={() => {
-          play();
+          sfxMode && play();
           setOptionChosenBG('C');
           setOptionChosen(questions[currQuestion].correct_answers.answer_c_correct);
         }} sx={flexStyle} bgColor={optionChosenBG === 'C' ? 'red.500' : '#fff'}>
@@ -175,7 +176,7 @@ const MultiQuiz = () => {
         </Box>
 
         <Box onClick={() => {
-          play();
+          sfxMode && play();
           setOptionChosenBG('D');
           setOptionChosen(questions[currQuestion].correct_answers.answer_d_correct);
         }} sx={flexStyle} bgColor={optionChosenBG === 'D' ? 'red.500' : '#fff'}>

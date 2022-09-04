@@ -8,8 +8,14 @@ import {
 const Level = () => {
     const {
         categories,
-        setCategories
+        setCategories,
+        ButtonSound,
+        sfxMode
     } = useContext(QuizContext);
+
+    const play = () => {
+        new Audio(ButtonSound).play()
+      }
 
   return (
     <Box sx={{
@@ -22,7 +28,10 @@ const Level = () => {
             m: '10px 0',
             mr: '15px'
         }}>Select Level</Box>
-        <select value={categories} onChange={(e) => setCategories(e.target.value)} style={{
+        <select value={categories} onChange={(e) => {
+            sfxMode && play();
+            setCategories(e.target.value);
+        }} style={{
             color: '#2a4365',
             fontSize: '12px',
             fontWeight: '500',

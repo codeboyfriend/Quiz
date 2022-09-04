@@ -20,7 +20,7 @@ const EndScreen = () => {
     refresh,
     setRefresh,
     ButtonSound,
-    soundMode  
+    sfxMode  
   } = useContext(QuizContext);
 
   const play = () => {
@@ -28,10 +28,7 @@ const EndScreen = () => {
   }
 
   const restartGame = () => {
-    // eslint-disable-next-line
-    {
-      soundMode && play();
-    } 
+    sfxMode && play();
     setScore(0);
     setPoint(0);
     setCurrQuestion(0);

@@ -8,7 +8,13 @@ import { QuizContext } from "../../Helpers/Contexts";
 import { FaHome } from "react-icons/fa";
 
 const Navbar = () => {
-  const { name, currQuestion, questions, ButtonSound } = useContext(QuizContext);
+  const { 
+    name, 
+    currQuestion, 
+    questions, 
+    ButtonSound,
+    sfxMode 
+  } = useContext(QuizContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -17,12 +23,12 @@ const Navbar = () => {
   }
 
   const skipPlayQuestion = () => {
-    play(); 
+    sfxMode && play(); 
     navigate('/end');
   }
 
   const skipMultiQuestion = () => { 
-    play();
+    sfxMode && play();
     navigate('/multiend');
   }
 
@@ -37,16 +43,16 @@ const Navbar = () => {
         boxShadow: '0px 1px 2px rgba'
     }}>
         <Link to='/home'>
-          <Text onClick={play} sx={{
+          <Text onClick={sfxMode && play} sx={{
             fontSize: '1.4rem'
           }}><FaHome /></Text>
         </Link>
 
         <Link to='/home'>
-        <Text sx={{
-          fontSize: '1.5rem',
-          fontWeight: '500'
-        }}>{name}</Text>
+          <Text sx={{
+            fontSize: '1.5rem',
+            fontWeight: '500'
+          }}>{name}</Text>
         </Link>
       {
         location.pathname === '/multiplayer' &&
