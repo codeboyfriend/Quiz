@@ -37,13 +37,32 @@ function App() {
     setIsLoading(false);
   }
 
-  const play = () => {
-    new Audio(BGsound).play()
-  }
+  // let song = new Audio(BGsound)
 
-  const pause = () => {
-    new Audio(BGsound).pause()
-  }
+  // // const play = () => {
+  // //   song.play();
+  // // }
+
+  // // const pause = () => {
+  // //   song.pause();
+  // // }
+
+  // function start() {
+  //   console.log('testing')
+  // }
+
+  // // // const myStart = setInterval(start, 1000);
+  // // function myStart() {
+  // //   setInterval(start, 1000)
+  // // }
+
+  // function stop() {
+  //   clearInterval(myStart)
+  // }
+
+  // {
+  //   soundMode ? myStart() : stop()
+  // }
 
 
   
@@ -51,14 +70,13 @@ function App() {
     fetchQuestion(); // eslint-disable-next-line
   }, [categories, tags, refresh]);
 
-  // useEffect(() => {
-  //   if(soundMode === true){
-  //     play();
-  //   }
-  //   // eslint-disable-next-line
-  // }, [soundMode])
-
-  {soundMode ? play() : pause()}
+  useEffect(() => {
+    if (soundMode === true) {
+      // play()
+    } else {
+      return
+    }
+  }, [soundMode])
 
   return (
     <Router>

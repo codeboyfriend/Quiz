@@ -32,7 +32,12 @@ const Dashboard = () => {
     flexDir: 'column'
   }}>
     <Box>
-      <Text sx={textStyle}>Please wait...</Text>
+      <Text 
+        sx={textStyle}>Please wait 
+        <span className="loadingOne">.</span> 
+        <span className="loadingTwo">.</span>
+        <span className="loadingThree">.</span>
+      </Text>
     </Box>
     
     <Box sx={{

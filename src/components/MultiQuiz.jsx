@@ -73,7 +73,6 @@ const MultiQuiz = () => {
     borderRadius: '20px',
     cursor: 'pointer',
     width: '250px',
-    color: 'blue.800',
     margin: '5px'
   }
 
@@ -152,7 +151,10 @@ const MultiQuiz = () => {
           sfxMode && play();
           setOptionChosenBG('A');
           setOptionChosen(questions[currQuestion].correct_answers.answer_a_correct);
-        }} sx={flexStyle} bgColor={optionChosenBG === 'A' ? 'red.500' : '#fff'}>
+        }} sx={flexStyle} 
+          bgColor={optionChosenBG === 'A' ? 'red.500' : '#fff'}
+          color={optionChosenBG === 'A' ? '#fff' : 'blue.800'}
+        >
           <Text sx={optionStyle}>A</Text>
           <Text>{questions[currQuestion].answers.answer_a}</Text>
         </Box>
@@ -161,7 +163,10 @@ const MultiQuiz = () => {
           sfxMode && play();
           setOptionChosenBG('B');
           setOptionChosen(questions[currQuestion].correct_answers.answer_b_correct);
-        }} sx={flexStyle} bgColor={optionChosenBG === 'B' ? 'red.500' : '#fff'}>
+        }} sx={flexStyle} 
+          bgColor={optionChosenBG === 'B' ? 'red.500' : '#fff'}
+          color={optionChosenBG === 'B' ? '#fff' : 'blue.800'}
+        >
           <Text sx={optionStyle}>B</Text>
           <Text>{questions[currQuestion].answers.answer_b}</Text>
         </Box>
@@ -170,7 +175,10 @@ const MultiQuiz = () => {
           sfxMode && play();
           setOptionChosenBG('C');
           setOptionChosen(questions[currQuestion].correct_answers.answer_c_correct);
-        }} sx={flexStyle} bgColor={optionChosenBG === 'C' ? 'red.500' : '#fff'}>
+        }} sx={flexStyle} 
+          bgColor={optionChosenBG === 'C' ? 'red.500' : '#fff'}
+          color={optionChosenBG === 'C' ? '#fff' : 'blue.800'}
+        >
           <Text sx={optionStyle}>C</Text>
           <Text>{questions[currQuestion].answers.answer_c}</Text>
         </Box>
@@ -179,7 +187,10 @@ const MultiQuiz = () => {
           sfxMode && play();
           setOptionChosenBG('D');
           setOptionChosen(questions[currQuestion].correct_answers.answer_d_correct);
-        }} sx={flexStyle} bgColor={optionChosenBG === 'D' ? 'red.500' : '#fff'}>
+        }} sx={flexStyle} 
+          bgColor={optionChosenBG === 'D' ? 'red.500' : '#fff'}
+          color={optionChosenBG === 'D' ? '#fff' : 'blue.800'}
+        >
           <Text sx={optionStyle}>D</Text>
           <Text>{questions[currQuestion].answers.answer_d}</Text>
         </Box>
