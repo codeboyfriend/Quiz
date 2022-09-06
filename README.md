@@ -14,4 +14,4 @@ Kwiz is a web application, and enable the user to undertake a series of question
 
 If you have a suggestion that would makes this better, please fork the repo and create a pull request. You can also simply open an issue with the tag 'enchancement'. Don't forget to give thr project a star!. Thanks again!
 
-From codeboyfriend
+⭐️  From codeboyfriend
