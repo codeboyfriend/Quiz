@@ -71,7 +71,7 @@ const Login = () => {
             <Text sx={{
                 textAlign: 'center',
                 opacity: '0.8'
-            }}>Enter our Name:</Text>
+            }}>Enter your Name:</Text>
 
             <Input sx={{
                 padding: '5px'

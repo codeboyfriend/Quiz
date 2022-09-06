@@ -8,6 +8,7 @@
 }
 
 .loadingOne{
+  font-size: 1.5rem;
   animation-name: isLoadingOne;
   animation-duration: 2s;
   animation-timing-function: ease-in-out;
@@ -29,6 +30,7 @@
 }
 
 .loadingTwo{
+  font-size: 1.5rem;
   animation-name: isLoadingTwo;
   animation-duration: 2s;
   animation-delay: 1s;
@@ -51,6 +53,7 @@
 }
 
 .loadingThree{
+  font-size: 1.5rem;
   animation-name: isLoadingThree;
   animation-duration: 2s;
   animation-delay: 1.5s;

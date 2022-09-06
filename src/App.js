@@ -10,6 +10,7 @@ import EndScreen from "./components/pages/EndScreen";
 import MultiPlayer from "./components/pages/MultiPlayer";
 import MultiEnd from "./components/pages/MultiEnd";
 import Categories from "./components/pages/Categories"; 
+import Help from "./components/pages/Help";
 import { QuizContext } from "./Helpers/Contexts";
 import BGsound from '../src/assets/sound.mp3';
 import ButtonSound from '../src/assets/buttonSound.mp3';
@@ -24,11 +25,9 @@ function App() {
   const [point, setPoint] = useState(0);
   const [name, setName] = useState("");
   const [tags, setTags] = useState('');
-  const [sound, setSound] = useState(true);
   const [sfxMode, setSfxMode] = useState(true);
-  const [soundMode, setSoundMode] = useState(false);
   const [refresh, setRefresh] = useState(true);
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchQuestion = async () => {
     const result = await axios(`https://quizapi.io/api/v1/questions?apiKey=6cm1r5jVOf9rfQxLa6vxOceBaOXAvgYSdAag0ncz&difficulty=${categories}&tags=${tags}`);
@@ -37,46 +36,9 @@ function App() {
     setIsLoading(false);
   }
 
-  // let song = new Audio(BGsound)
-
-  // // const play = () => {
-  // //   song.play();
-  // // }
-
-  // // const pause = () => {
-  // //   song.pause();
-  // // }
-
-  // function start() {
-  //   console.log('testing')
-  // }
-
-  // // // const myStart = setInterval(start, 1000);
-  // // function myStart() {
-  // //   setInterval(start, 1000)
-  // // }
-
-  // function stop() {
-  //   clearInterval(myStart)
-  // }
-
-  // {
-  //   soundMode ? myStart() : stop()
-  // }
-
-
-  
   useEffect(() => {
     fetchQuestion(); // eslint-disable-next-line
   }, [categories, tags, refresh]);
-
-  useEffect(() => {
-    if (soundMode === true) {
-      // play()
-    } else {
-      return
-    }
-  }, [soundMode])
 
   return (
     <Router>
@@ -99,14 +61,10 @@ function App() {
           setCategories,
           tags,
           setTags,
-          sound,
-          setSound,
           refresh,
           setRefresh,
-          soundMode,
           sfxMode,
           setSfxMode,
-          setSoundMode,
           BGsound,
           ButtonSound,
           ErrorSound,
@@ -121,6 +79,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/multiplayer" element={<MultiPlayer />} />
             <Route path="/settings" element={<Categories />} />
+            <Route path="/help" element={<Help />} />
           </Routes>
         </QuizContext.Provider>
     </Box>

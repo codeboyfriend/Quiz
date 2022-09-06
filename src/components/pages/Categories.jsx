@@ -13,8 +13,6 @@ import Tags from "../Tags";
 const Categories = () => {
     const { 
         ButtonSound,
-        soundMode,
-        setSoundMode,
         sfxMode,
         setSfxMode 
     } = useContext(QuizContext);
@@ -54,26 +52,6 @@ const Categories = () => {
         }}>
             <Tags />
             <Level />
-
-            <Box sx={{
-                textAlign: 'start',
-                m: '10px 0'
-            }}>
-                <Text 
-                  onClick={() => {
-                    setSoundMode(!soundMode);
-                    sfxMode && play();
-                  }}>Sound: 
-                  <button style={{
-                    backgroundColor: '#fff',
-                    color: '#2a4365',
-                    fontSize: '12px',
-                    fontWeight: '500',
-                    padding: '3px 10px',
-                    marginLeft: '15px'
-                  }}>{soundMode ? 'Off' : 'On'}</button>
-                </Text>
-            </Box>
 
             <Box sx={{
                 textAlign: 'start',

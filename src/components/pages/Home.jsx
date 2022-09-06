@@ -79,8 +79,8 @@ return (
 }}>
     <Box sx={{
         maxW: '700px',
-        m: '0 auto',
-        h: '100%',
+        m: 'auto',
+        h: '85%',
         display: 'flex',
         justifyContent: 'space-between',
         padding: '40px 0',
@@ -124,6 +124,7 @@ return (
         justifyContent: 'center',
         alignItems: 'center'
         }}>
+        <Link to={'/help'}>
         <Box onClick={() => {
             sfxMode && play();
           }} sx={{
@@ -136,6 +137,7 @@ return (
           }}><FiHelpCircle /></Text>
             <Text>Help</Text>
         </Box>
+        </Link>
         
         <Link to={'/about'}>
           <Box onClick={() => {

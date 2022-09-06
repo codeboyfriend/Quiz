@@ -47,7 +47,7 @@ const About = () => {
             p: '20px 10px',
             textAlign: 'left'
           }}>
-            Kwiz is a web application, and enable the user to undertake a series of questions on different technologies. The app is user friendly, and shall find it extremely easy to answer the multiple-choice questions. At the end of the quiz, a result-report is generated which states the score. There is also component for multiplayer with kwiz robot. 
+            Kwiz is a web application, and enable the user to undertake a series of questions on different technologies. The app is user friendly, and shall find it extremely easy to answer the multiple-choice questions. At the end of the quiz, a result-report is generated which states the score and point in percentage(%). There is also component for multiplayer with kwiz robot. 
           </Text>
         </Box>
 

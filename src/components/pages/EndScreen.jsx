@@ -36,6 +36,9 @@ const EndScreen = () => {
     navigate('/home')
   }
 
+  const totalPoint = questions.length * 2;
+  const calc = point / totalPoint;
+
   const flexStyle = {
     display: 'flex',
     alignItems: 'center',
@@ -72,7 +75,7 @@ const EndScreen = () => {
 
          <Text sx={{
             m: '15px 0'
-          }}>Point : { point }</Text>
+          }}>Point : { point } {'//'} {calc * 100}</Text>
 
           <Box onClick={restartGame} sx={flexStyle}>
             <Text>Restart Quiz</Text>
