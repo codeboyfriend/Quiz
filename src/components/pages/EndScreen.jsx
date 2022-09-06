@@ -74,11 +74,11 @@ const EndScreen = () => {
           }}>{ score } / { questions.length }</Text>
 
          <Text sx={{
-            m: '10px 0'
-          }}>Point : { point } {'//'} {calc * 100}</Text>
+            m: '5px 0'
+          }}>Point : { point }</Text>
 
           <Text sx={{
-            m: '10px 0'
+            m: '5px 0'
           }}>Point(%)  :  {calc * 100}(%)</Text>
 
           <Box onClick={restartGame} sx={flexStyle}>
