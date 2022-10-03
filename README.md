@@ -1,6 +1,6 @@
 # Kwiz
 
-Kwiz is a web application, and enable the user to undertake a series of questions on different technologies. The app is user friendly, and shall find it extremely easy to answer the multiple-choice questions. At the end of the quiz, a result-report is generated which states the score and point in percentage(%). There is also component for multiplayer with kwiz robot. 
+Kwiz is a web application that enables user to undertake a series of questions on different technologies. The app is very user friendly, and makes answering multiple-choice questions extremely easy. At the end of the quiz, a result-report is generated which contains the record of the scores and points in percentage(%). There is also component for multiplayer with kwiz robot. 
 
 > Technologies used
 - React
@@ -13,7 +13,7 @@ Kwiz is a web application, and enable the user to undertake a series of question
 - [Source code](github.com/codeboyfriend/quiz)
 
 > Contributions 👨‍💻
-- Contributions make the open source community such an amazing place to learn, inspire, and create.
+- Contributions make the open source community an amazing place to learn, inspire, and create.
 - Any contributions you make are greatly appreciated.
 - Check out our [contribution guidelines](./CONTRIBUTING.md) for more information.
 
