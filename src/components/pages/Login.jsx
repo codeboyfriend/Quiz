@@ -13,7 +13,7 @@ const Login = () => {
   const { 
     name, 
     setName, 
-    ButtonSound 
+    StartSound
   } = useContext(QuizContext);
   const toast = useToast();
 
