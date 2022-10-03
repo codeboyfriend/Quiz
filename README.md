@@ -17,6 +17,13 @@ Kwiz is a web application that enable the user to undertake a series of question
 - Any contribution you make will be greatly appreciated.
 - Check out our [contribution guidelines](./CONTRIBUTING.md) for more information.
 
-
+> Screenshots
+ <img width="460" height="300" src="public/1.PNG">
+ <img width="460" height="300" src="public/2.PNG">
+ <img width="460" height="300" src="public/3.PNG">
+ <img width="460" height="300" src="public/4.PNG">
+ <img width="460" height="300" src="public/5.PNG">
+ <img width="460" height="300" src="public/6.PNG">
+ <img width="460" height="300" src="public/7.PNG">
 
 ⭐️ Show some ❤️ by starring the repository.
