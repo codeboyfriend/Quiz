@@ -15,6 +15,7 @@ import { QuizContext } from "./Helpers/Contexts";
 import BGsound from '../src/assets/sound.mp3';
 import ButtonSound from '../src/assets/buttonSound.mp3';
 import ErrorSound from '../src/assets/errorSound.mp3';
+import StartSound from '../src/assets/startSound.mp3';
 
 function App() {
   const [questions, setQuestions] = useState([]);
@@ -68,6 +69,7 @@ function App() {
           BGsound,
           ButtonSound,
           ErrorSound,
+          StartSound,
           isLoading
         }}>
           <Routes>

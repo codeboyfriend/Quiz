@@ -13,7 +13,7 @@ const Login = () => {
   const { 
     name, 
     setName, 
-    ButtonSound 
+    StartSound
   } = useContext(QuizContext);
   const toast = useToast();
 
@@ -32,12 +32,12 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const play = () => {
-    new Audio(ButtonSound).play();
+  const enterplay = () => {
+    new Audio(StartSound).play()
   }
 
   const login = () => {
-    play();
+    enterplay();
     name !== '' && navigate('/home');
   }
 
