@@ -9,9 +9,14 @@ Kwiz is a web application, and enable the user to undertake a series of question
 - quizapi
 
 > To check out Kwiz
-- Visit [Kwiz](kwiz.netlify.app)
+- Visit [Kwiz](kwiiz.netlify.app)
 - [Source code](github.com/codeboyfriend/quiz)
 
-If you have a suggestion that would makes this better, please fork the repo and create a pull request. You can also simply open an issue with the tag 'enchancement'. Don't forget to give thr project a star!. Thanks again!
+> Contributions 👨‍💻
+- Contributions make the open source community such an amazing place to learn, inspire, and create.
+- Any contributions you make are greatly appreciated.
+- Check out our [contribution guidelines](./CONTRIBUTING.md) for more information.
 
-⭐️  From codeboyfriend
+
+
+⭐️ Show some ❤️ by starring the repository.
