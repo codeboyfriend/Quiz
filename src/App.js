@@ -82,7 +82,7 @@ function App() {
             <Route path="/help" element={<Help />} />
           </Routes>
         </QuizContext.Provider>
-    </Box>
+      </Box>
       </ChakraProvider>
     </Router>
   );

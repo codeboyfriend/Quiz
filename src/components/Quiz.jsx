@@ -30,6 +30,7 @@ const Quiz = () => {
   } = useContext(QuizContext);
   const [optionChosen, setOptionChosen] = useState("");
   const [optionChosenBG, setOptionChosenBG] = useState("");
+  const [pointsHistory, setpointsHistory] = useState([]);
 
   const play = () => {
     new Audio(ButtonSound).play()
@@ -39,10 +40,14 @@ const Quiz = () => {
     if(optionChosen === 'true'){
       setScore(score + 1);
       setPoint(point + 2);
+      setpointsHistory([...pointsHistory, 2]);
       setOptionChosen('');
       setOptionChosenBG('A');
     }
-    
+    else {
+      setpointsHistory([...pointsHistory, 0]);
+    }
+
     sfxMode && play();
     setOptionChosenBG('');
     setCurrQuestion(currQuestion + 1);
@@ -53,6 +58,10 @@ const Quiz = () => {
     setOptionChosen('');
     setOptionChosenBG('');
     setCurrQuestion(currQuestion - 1);
+    const prev = (pointsHistory.length > 0) ? pointsHistory[pointsHistory.length-1] : 0;
+    setpointsHistory(pointsHistory.slice(0, pointsHistory.length - 1));
+    setPoint(point - prev);
+    if (prev === 2) setScore(score - 1);
   }
 
   const finishQuiz = () => {
