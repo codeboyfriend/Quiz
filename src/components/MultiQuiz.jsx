@@ -30,6 +30,7 @@ const MultiQuiz = () => {
   } = useContext(QuizContext);
   const [optionChosen, setOptionChosen] = useState("");
   const [optionChosenBG, setOptionChosenBG] = useState("");
+  const [pointsHistory, setpointsHistory] = useState([]);
 
   const play = () => {
     new Audio(ButtonSound).play()
@@ -39,6 +40,10 @@ const MultiQuiz = () => {
     if(optionChosen === 'true'){
       setPoint(point + 2);
       setOptionChosen('');
+      setpointsHistory([...pointsHistory, 2]);
+    }
+    else {
+      setpointsHistory([...pointsHistory, 0]);
     }
 
     sfxMode && play();
@@ -53,6 +58,9 @@ const MultiQuiz = () => {
       setOptionChosenBG('');
       setKwizScore(kwizScore - Math.floor(Math.random() * 2));
       setCurrQuestion(currQuestion - 1);
+      const prev = (pointsHistory.length > 0) ? pointsHistory[pointsHistory.length-1] : 0;
+      setpointsHistory(pointsHistory.slice(0, pointsHistory.length - 1));
+      setPoint(point - prev);
     }
 
     const finishQuiz = () => {
